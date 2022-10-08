@@ -19,7 +19,7 @@ class Node:
         self.left = ""
         self.right = ""
 ```
-> * code Insertion a new node and Sorted bumber :
+code Insertion a new node and Sorted bumber :
 ```
 header.append(number)
 ```
@@ -55,7 +55,7 @@ graph TD;
     3-->4;
 ```
 ---
-> *  Deletion a node <br />
+Deletion a node <br />
 ```
 header.delete(number)
 ```
@@ -167,7 +167,7 @@ graph TD;
 ```
 ---
 * function outside class:<br />
-> * Balance node<br />
+ Balance node<br />
 > > find inorder traversal first by code (inside class):
 ```
 inorder = header.inorderTraversal(header)
