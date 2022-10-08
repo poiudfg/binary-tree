@@ -11,7 +11,7 @@ ________________________________________________________________________________
 - [x] Find sibling(node that has the same parent)
 - [ ] <br />
 __________________________________________________________________________________________________________________________________________________ <br />
- * function inside class:
+ * function inside class :
 ```
 class Node:
     def __init__(self,Val):
@@ -19,7 +19,7 @@ class Node:
         self.left = ""
         self.right = ""
 ```
-> * Insertion a new node and Sorted bumber <br />
+> * code Insertion a new node and Sorted bumber :
 ```
 header.append(number)
 ```
@@ -39,6 +39,22 @@ header.append(number)
                 else:
                     self = self.left
 ```
+* diagrams Insertion a new node and Sorted bumber Ex:
+```mermaid
+graph TD;
+    5-->3;
+    5-->7;
+    3-->4;
+```
+> add number 2 :
+```mermaid
+graph TD;
+    5-->3;
+    5-->7;
+    3-->2;
+    3-->4;
+```
+__________________________________________________________________________________________________________________________________________________ <br />
 > *  Deletion a node <br />
 ```
 header.delete(number)
@@ -90,6 +106,65 @@ def delete(self,Val):
         if pre_temp.left.Val == Val:
             pre_temp.left = self
 ```
+* diagrams deletion a node Ex:
+```mermaid
+graph TD;
+    50-->25;
+    50-->75;
+    25-->15;
+    25-->30;
+    30-->27;
+    30-->40;
+    75-->90;
+    75-->60;
+    90-->85;
+```
+> case 1 (right -> left) delete number 25 :
+```mermaid
+graph TD;
+    50-->27;
+    50-->75;
+    27-->15;
+    27-->30;
+    30-->40;
+    75-->90;
+    75-->60;
+    90-->85;
+```
+> case 2 (right) delete number 75 :
+```mermaid
+graph TD;
+    50-->27;
+    50-->90;
+    27-->15;
+    27-->30;
+    30-->40;
+    90-->60;
+    90-->85;
+```
+> case 3 (left only) delete number 90 :
+```mermaid
+graph TD;
+    50-->27;
+    50-->75;
+    27-->15;
+    27-->30;
+    30-->40;
+    75-->85;
+    75-->60;
+```
+> case 4 (no children) delete number 15 :
+```mermaid
+graph TD;
+    50-->25;
+    50-->75;
+    25-->30;
+    30-->27;
+    30-->40;
+    75-->90;
+    75-->60;
+    90-->85;
+```
 ________________________________________________________________________________________________________________________________________________________ <br />
 * function outside class:<br />
 > * Balance node<br />
@@ -106,7 +181,8 @@ def inorderTraversal(self, header):
                 inorder = inorder + self.inorderTraversal(header.right)
             return inorder
 ```
-> code balance node
+Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20 ,23 ,25 ,60 ,75 ]
+> code balance node :
 ```
 header = balance_tree(inorder,header)
 ```
@@ -132,6 +208,27 @@ def balance_tree(inorder,header):
 
     return header
 ```
+* diagrams before balance node Ex:
+```mermaid
+graph TD;
+    60-->23;
+    60-->75;
+    23-->14;
+    23-->25;
+    14-->18;
+    18-->20;
+```
+> after balance  :
+```mermaid
+graph TD;
+    23-->18;
+    23-->60;
+    18-->14;
+    18-->20;
+    60-->25;
+    60-->75;
+```
+________________________________________________________________________________________________________________________________________________________ <br />
 > * Find maximum height
 ```
 print("maximum height = " + str(maxheight(header)))
