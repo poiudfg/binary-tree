@@ -9,7 +9,7 @@
 - [x] Find children (node that contain previous node)
 - [x] Find leaves (node that does not contain next left or right node)
 - [x] Find sibling (node that has the same parent)
-- [ ] <br />
+- [ ] ...
 ---
  * function inside class :
 ```
