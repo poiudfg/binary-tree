@@ -5,10 +5,10 @@ ________________________________________________________________________________
 - [x] Deletion a node function in binary tree
 - [x] Balance node function in binary tree 
 - [x] Find maximum height
-- [x] Find parent(nodethat containnextleft orright node)
-- [x] Find children(node that contain previous node)
-- [x] Find leaves(node that does not contain next left or right node)
-- [x] Find sibling(node that has the same parent)
+- [x] Find parent (nodethat containnextleft orright node)
+- [x] Find children (node that contain previous node)
+- [x] Find leaves (node that does not contain next left or right node)
+- [x] Find sibling (node that has the same parent)
 - [ ] <br />
 __________________________________________________________________________________________________________________________________________________ <br />
  * function inside class :
