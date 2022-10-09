@@ -79,15 +79,21 @@ def balance_tree_con(inorder,half,halftohalf,header):
     else:
         half_right = half + halftohalf
         half_left = half - halftohalf
-        header.right = Node(inorder[half_right])
-        header.left = Node(inorder[half_left])
+        if half_right >= len(inorder):
+            header.left = Node(inorder[half_left])
+        else:
+            header.right = Node(inorder[half_right])
+            header.left = Node(inorder[half_left])
         halftohalf = round(halftohalf/2)
 
     return balance_tree_con(inorder,half_left,halftohalf,header.left) + balance_tree_con(inorder,half_right,halftohalf,header.right)
 
 def balance_tree(inorder,header):
     Len = len(inorder)
-    half = round((Len-1) / 2)
+    if Len % 2 == 0 :
+        half = round(Len / 2)
+    else:
+        half = round((Len-1) / 2)
     header = Node(inorder[half])
     halftohalf = round(half/2)
     balance_tree_con(inorder,half,halftohalf,header)
