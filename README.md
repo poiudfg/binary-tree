@@ -166,8 +166,8 @@ graph TD;
     90-->85;
 ```
 ---
-* function outside class:<br />
- Balance node<br />
+---
+ # Balance node
 > > find inorder traversal first by code (inside class):
 ```
 inorder = header.inorderTraversal(header)
@@ -184,7 +184,7 @@ def inorderTraversal(self, header):
 Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20 ,23 ,25 ,60 ,75 ]
 
 ---
-> code balance node :
+> code balance node (outside class):
 ```
 header = balance_tree(inorder,header)
 ```
@@ -256,6 +256,7 @@ graph TD;
     75-->60;
 ```
 ---
+---
 # Find maximum height, parent ,children ,leaves <br />
 Ex. Node :<br />
    N = Node
@@ -269,7 +270,6 @@ graph TD;
 ```
 ---
 1.) maximum height :<br />
-    N = Node<br />
     LV = level
 ```mermaid
 graph TD;
