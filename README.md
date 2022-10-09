@@ -256,3 +256,83 @@ graph TD;
     75-->60;
 ```
 ---
+# Find maximum height, parent ,children ,leaves <br />
+Ex. Node :<br />
+   N = Node
+```mermaid
+graph TD;
+    N1-->N2;
+    N1-->N3;
+    N2-->N4;
+    N2-->N5;
+    N3-->N6;
+```
+---
+1.) maximum height :<br />
+    N = Node<br />
+    LV = level
+```mermaid
+graph TD;
+    N1(LV0)-->N2(LV1);
+    N1(LV0)-->N3(LV1);
+    N2(LV1)-->N4(LV2);
+    N2(LV1)-->N5(LV2);
+    N3(LV1)-->N6(LV2);
+```
+height = highest level + 1<br />
+       = 2 + 1<br />
+       = 3
+       
+---
+2.) parent :<br />
+ * nodethat containnextleft orright node<br />
+ N = other Node<br />
+ P = parent 
+```mermaid
+graph TD;
+    N1(P1)-->N2(P2);
+    N1(P1)-->N3(P3);
+    N2(P2)-->N4(N);
+    N2(P2)-->N5(N);
+    N3(P3)-->N6(N);
+```
+---
+3.) children :<br />
+ * node that contain previous node<br />
+ N = other Node<br />
+ C = children
+```mermaid
+graph TD;
+    N1(N)-->N2(C1);
+    N1(N)-->N3(C2);
+    N2(C1)-->N4(C3);
+    N2(C1)-->N5(C4);
+    N3(C2)-->N6(C5);
+```
+---
+4.) leaves : <br />
+ * node that does not contain next left or right node<br />
+  N = other Node<br />
+  L = leaves
+ ```mermaid
+graph TD;
+    N1(N)-->N2(N);
+    N1(N)-->N3(N);
+    N2(N)-->N4(L1);
+    N2(N)-->N5(L2);
+    N3(N)-->N6(L3);
+```
+---
+5.) sibling : <br />
+ * node that has the same parent<br />
+  N = other Node<br />
+  S = sibling
+ ```mermaid
+graph TD;
+    N1(N)-->N2(S1);
+    N1(N)-->N3(S1);
+    N2(S1)-->N4(S2);
+    N2(S1)-->N5(S2);
+    N3(S1)-->N6(N);
+```
+---
