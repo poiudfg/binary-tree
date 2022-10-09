@@ -189,22 +189,20 @@ Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20
 header = balance_tree(inorder,header)
 ```
 ```
-def balance_tree_con(inorder,half,halftohalf,header):
-    if header == "" or halftohalf == 0:
+def arr_balance(inorder,half,halftohalf,arr_bala):
+    if inorder == [] or halftohalf == 0:
         return 0
-    else:
-        half_right = half + halftohalf
-        half_left = half - halftohalf
-        if half_right >= len(inorder):
-            header.left = Node(inorder[half_left])
-        else:
-            header.right = Node(inorder[half_right])
-            header.left = Node(inorder[half_left])
-        halftohalf = round(halftohalf/2)
+    half_right = half + halftohalf - 2
+    half_left = half - halftohalf
+    arr_bala.append(inorder.pop(half_left))
+    arr_bala.append(inorder.pop(half_right))
+    halftohalf = round(halftohalf/2)
 
-    return balance_tree_con(inorder,half_left,halftohalf,header.left) + balance_tree_con(inorder,half_right,halftohalf,header.right)
-
+    return arr_balance(inorder,half_left,halftohalf,arr_bala)
+```    
+```    
 def balance_tree(inorder,header):
+    arr_bala = []
     Len = len(inorder)
     if Len % 2 == 0 :
         half = round(Len / 2)
@@ -212,8 +210,13 @@ def balance_tree(inorder,header):
         half = round((Len-1) / 2)
     header = Node(inorder[half])
     halftohalf = round(half/2)
-    balance_tree_con(inorder,half,halftohalf,header)
-
+    inorder.pop(half)
+    arr_balance(inorder,half,halftohalf,arr_bala)
+    while inorder != []:
+        arr_bala.append(inorder.pop())
+    for inum in list(arr_bala):
+        header.append(inum)
+    
     return header
 ```
 * diagrams before balance odd node Ex:
