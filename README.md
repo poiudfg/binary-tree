@@ -234,6 +234,7 @@ graph TD;
     60-->25;
     60-->75;
 ```
+---
 * diagrams before balance odd node Ex:
 ```mermaid
 graph TD;
