@@ -214,7 +214,7 @@ def balance_tree(inorder,header):
 
     return header
 ```
-* diagrams before balance even node Ex:
+* diagrams before balance odd node Ex:
 ```mermaid
 graph TD;
     60-->23;
@@ -235,7 +235,7 @@ graph TD;
     60-->75;
 ```
 ---
-* diagrams before balance odd node Ex:
+* diagrams before balance even node Ex:
 ```mermaid
 graph TD;
     60-->23;
