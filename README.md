@@ -189,16 +189,19 @@ Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20
 header = balance_tree(inorder,header)
 ```
 ```
-def arr_balance(inorder,half,halftohalf,arr_bala):
+def arr_balance(inorder,half,halftohalf,arr_bala,right_frist):
     if inorder == [] or halftohalf == 0:
         return 0
-    half_right = half + halftohalf - 2
+    if right_frist == True:
+        half_right = half + halftohalf - 2
+    else:
+        half_right = half + halftohalf - 1
     half_left = half - halftohalf
     arr_bala.append(inorder.pop(half_left))
     arr_bala.append(inorder.pop(half_right))
-    halftohalf = round(halftohalf/2)
+    halftohalf = round(half_left/2)
 
-    return arr_balance(inorder,half_left,halftohalf,arr_bala)
+    return arr_balance(inorder,half_left,halftohalf,arr_bala,right_frist)
 ```    
 ```    
 def balance_tree(inorder,header):
@@ -211,7 +214,8 @@ def balance_tree(inorder,header):
     header = Node(inorder[half])
     halftohalf = round(half/2)
     inorder.pop(half)
-    arr_balance(inorder,half,halftohalf,arr_bala)
+    right_frist = bool(1)
+    arr_balance(inorder,half,halftohalf,arr_bala,right_frist)
     while inorder != []:
         arr_bala.append(inorder.pop())
     for inum in list(arr_bala):
