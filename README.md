@@ -182,6 +182,7 @@ def inorderTraversal(self, header):
             return inorder
 ```
 Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20 ,23 ,25 ,60 ,75 ]
+---
 > code balance node :
 ```
 header = balance_tree(inorder,header)
