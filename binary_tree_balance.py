@@ -73,6 +73,7 @@ class Node:
                 inorder = inorder + self.inorderTraversal(header.right)
             return inorder
 
+'''
 def balance_tree_con(inorder,half,halftohalf,header):
     if header == "" or halftohalf == 0:
         return 0
@@ -98,6 +99,36 @@ def balance_tree(inorder,header):
     halftohalf = round(half/2)
     balance_tree_con(inorder,half,halftohalf,header)
 
+    return header
+'''
+def arr_balance(inorder,half,halftohalf,arr_bala):
+    if inorder == [] or halftohalf == 0:
+        return 0
+    half_right = half + halftohalf - 2
+    half_left = half - halftohalf
+    arr_bala.append(inorder.pop(half_left))
+    arr_bala.append(inorder.pop(half_right))
+    halftohalf = round(halftohalf/2)
+
+    return arr_balance(inorder,half_left,halftohalf,arr_bala)
+    
+    
+def balance_tree(inorder,header):
+    arr_bala = []
+    Len = len(inorder)
+    if Len % 2 == 0 :
+        half = round(Len / 2)
+    else:
+        half = round((Len-1) / 2)
+    header = Node(inorder[half])
+    halftohalf = round(half/2)
+    inorder.pop(half)
+    arr_balance(inorder,half,halftohalf,arr_bala)
+    while inorder != []:
+        arr_bala.append(inorder.pop())
+    for inum in list(arr_bala):
+        header.append(inum)
+    
     return header
 
 
