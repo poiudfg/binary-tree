@@ -92,6 +92,7 @@ def balance_tree(inorder,header):
     halftohalf = round(half/2)
     balance_tree_con(inorder,half,halftohalf,header)
 
+    return header
 
 
 
