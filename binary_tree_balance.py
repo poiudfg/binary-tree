@@ -12,6 +12,7 @@ class Node:
                     break
                 else:
                     self = self.right
+
             if Val < self.Val:
                 if self.left  == "":
                     self.left = Node(Val)
@@ -64,7 +65,6 @@ class Node:
         if pre_temp.left.Val == Val:
             pre_temp.left = self
 
-
     def inorderTraversal(self, header):
             inorder = []
             if header:
@@ -73,10 +73,10 @@ class Node:
                 inorder = inorder + self.inorderTraversal(header.right)
             return inorder
 
-
+    
 def con_balance(nodes,start,end):
     if start > end:
-        return 0
+        return ""
     mid=(start+end)//2
     header = Node(nodes[mid])
 
@@ -86,24 +86,26 @@ def con_balance(nodes,start,end):
     return header
     
     
-def balance_tree(nodes,header):
-
+def balance_tree(header):
+    nodes = header.inorderTraversal(header) #inorder
     Len = len(nodes)
-    
+
     return con_balance(nodes,0,Len-1)
 
 
 
-
-header = Node(50)
-arr_in = [25,75,30,60,40,35,70,90,15,45,27,55,85,100]
+header = Node(1)
+arr_in = [2,3,4,5,6,7]
 for inum in list(arr_in):
     header.append(inum)
 
-arr_de = [30,75,35]
+arr_de = []
 for inum in list(arr_de):
     header.delete(inum)
 
+header = balance_tree(header)
+header.append(13)
+header.append(14)
 inorder = header.inorderTraversal(header)
-print(inorder)
-header = balance_tree(inorder,header)
+header = balance_tree(header)
+print()
