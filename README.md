@@ -191,7 +191,7 @@ header = balance_tree(inorder,header)
 ```
 def con_balance(nodes,start,end):
     if start > end:
-        return 0
+        return ""
     mid=(start+end)//2
     header = Node(nodes[mid])
 
@@ -201,11 +201,11 @@ def con_balance(nodes,start,end):
     return header
 ```    
 ```    
-def balance_tree(nodes,header):
-
+def balance_tree(header):
+    nodes = header.inorderTraversal(header) #inorder
     Len = len(nodes)
-    
-    return con_balance(nodes,0,Len-1)   
+
+    return con_balance(nodes,0,Len-1)
 ```
 * diagrams before balance odd node Ex:
 ```mermaid
