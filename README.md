@@ -189,39 +189,23 @@ Ex output array inorder traversal: [60 ,23 ,75 ,14 ,25 ,18 ,20 ] --> [14 ,18 ,20
 header = balance_tree(inorder,header)
 ```
 ```
-def arr_balance(inorder,half,halftohalf,arr_bala,right_frist):
-    if inorder == [] or halftohalf == 0:
+def con_balance(nodes,start,end):
+    if start > end:
         return 0
-    if right_frist == True:
-        half_right = half + halftohalf - 2
-    else:
-        half_right = half + halftohalf - 1
-    half_left = half - halftohalf
-    arr_bala.append(inorder.pop(half_left))
-    arr_bala.append(inorder.pop(half_right))
-    halftohalf = round(half_left/2)
+    mid=(start+end)//2
+    header = Node(nodes[mid])
 
-    return arr_balance(inorder,half_left,halftohalf,arr_bala,right_frist)
-```    
-```    
-def balance_tree(inorder,header):
-    arr_bala = []
-    Len = len(inorder)
-    if Len % 2 == 0 :
-        half = round(Len / 2)
-    else:
-        half = round((Len-1) / 2)
-    header = Node(inorder[half])
-    halftohalf = round(half/2)
-    inorder.pop(half)
-    right_frist = bool(1)
-    arr_balance(inorder,half,halftohalf,arr_bala,right_frist)
-    while inorder != []:
-        arr_bala.append(inorder.pop())
-    for inum in list(arr_bala):
-        header.append(inum)
-    
+    header.left = con_balance(nodes,start,mid-1)
+    header.right = con_balance(nodes,mid+1,end)
+
     return header
+```    
+```    
+def balance_tree(nodes,header):
+
+    Len = len(nodes)
+    
+    return con_balance(nodes,0,Len-1)   
 ```
 * diagrams before balance odd node Ex:
 ```mermaid
