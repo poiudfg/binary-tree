@@ -73,67 +73,24 @@ class Node:
                 inorder = inorder + self.inorderTraversal(header.right)
             return inorder
 
-'''
-def balance_tree_con(inorder,half,halftohalf,header):
-    if header == "" or halftohalf == 0:
+
+def con_balance(nodes,start,end):
+    if start > end:
         return 0
-    else:
-        half_right = half + halftohalf
-        half_left = half - halftohalf
-        if half_right >= len(inorder):
-            header.left = Node(inorder[half_left])
-        else:
-            header.right = Node(inorder[half_right])
-            header.left = Node(inorder[half_left])
-        halftohalf = round(halftohalf/2)
+    mid=(start+end)//2
+    header = Node(nodes[mid])
 
-    return balance_tree_con(inorder,half_left,halftohalf,header.left) + balance_tree_con(inorder,half_right,halftohalf,header.right)
-
-def balance_tree(inorder,header):
-    Len = len(inorder)
-    if Len % 2 == 0 :
-        half = round(Len / 2)
-    else:
-        half = round((Len-1) / 2)
-    header = Node(inorder[half])
-    halftohalf = round(half/2)
-    balance_tree_con(inorder,half,halftohalf,header)
+    header.left = con_balance(nodes,start,mid-1)
+    header.right = con_balance(nodes,mid+1,end)
 
     return header
-'''
-def arr_balance(inorder,half,halftohalf,arr_bala,right_frist):
-    if inorder == [] or halftohalf == 0:
-        return 0
-    if right_frist == True:
-        half_right = half + halftohalf - 2
-    else:
-        half_right = half + halftohalf - 1
-    half_left = half - halftohalf
-    arr_bala.append(inorder.pop(half_left))
-    arr_bala.append(inorder.pop(half_right))
-    halftohalf = round(half_left/2)
+    
+    
+def balance_tree(nodes,header):
 
-    return arr_balance(inorder,half_left,halftohalf,arr_bala,right_frist)
+    Len = len(nodes)
     
-    
-def balance_tree(inorder,header):
-    arr_bala = []
-    Len = len(inorder)
-    if Len % 2 == 0 :
-        half = round(Len / 2)
-    else:
-        half = round((Len-1) / 2)
-    header = Node(inorder[half])
-    halftohalf = round(half/2)
-    inorder.pop(half)
-    right_frist = bool(1)
-    arr_balance(inorder,half,halftohalf,arr_bala,right_frist)
-    while inorder != []:
-        arr_bala.append(inorder.pop())
-    for inum in list(arr_bala):
-        header.append(inum)
-    
-    return header
+    return con_balance(nodes,0,Len-1)
 
 
 
