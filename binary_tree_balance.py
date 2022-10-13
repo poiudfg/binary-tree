@@ -62,8 +62,9 @@ class Node:
         if pre_temp.right != "":
             if pre_temp.right.Val == Val:
                 pre_temp.right = self
-        if pre_temp.left.Val == Val:
-            pre_temp.left = self
+        if pre_temp.left != "":
+            if pre_temp.left.Val == Val:
+                pre_temp.left = self
 
     def inorderTraversal(self, header):
             inorder = []
